@@ -15,7 +15,11 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 
 // CORS
-app.use(cors())
+if(process.env.NODE_ENV == 'development') {
+  app.use(cors({
+    origin: `${process.env.CLIENT_URL}`
+  }))
+}
 
 // Routes
 app.get("/api", (_req, res) => {
