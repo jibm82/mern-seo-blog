@@ -24,13 +24,13 @@ exports.signUp = (req, res) => {
         })
       }
 
-      res.json({
-        user: success
-      })
-
       // res.json({
-      //   message: "Sign up success! Please sign in"
+      //   user: success
       // })
+
+      res.json({
+        message: "Sign up success! Please sign in"
+      })
     })
   })
 }
