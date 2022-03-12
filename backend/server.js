@@ -7,6 +7,8 @@ const mongoose = require("mongoose")
 
 require("dotenv").config()
 
+const blogRoutes = require("./routes/blog")
+
 // Create app
 const app = express()
 
@@ -30,10 +32,8 @@ if(process.env.NODE_ENV == 'development') {
   }))
 }
 
-// Routes
-app.get("/api", (_req, res) => {
-  res.json({ time: Date().toString() })
-})
+// Routes middleware
+app.use("/api", blogRoutes);
 
 // PORT
 const port = process.env.PORT || 8000
