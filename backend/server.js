@@ -3,11 +3,20 @@ const morgan = require("morgan")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
+const mongoose = require("mongoose")
 
 require("dotenv").config()
 
 // Create app
 const app = express()
+
+// db
+mongoose.connect(
+  process.env.DATABASE,
+  {
+    useNewUrlParser: true,
+  }
+).then(() => console.log('DB connected'))
 
 // Middlewares
 app.use(morgan("dev"))
@@ -23,7 +32,7 @@ if(process.env.NODE_ENV == 'development') {
 
 // Routes
 app.get("/api", (_req, res) => {
-  res.json({time: Date().toString()})
+  res.json({ time: Date().toString() })
 })
 
 // PORT
