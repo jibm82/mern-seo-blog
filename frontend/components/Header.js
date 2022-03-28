@@ -1,4 +1,5 @@
 import { useState } from "react";
+import{APP_NAME} from "../config";
 import {
   Navbar, NavbarBrand, NavbarToggler, Collapse, Nav,
   NavItem, NavLink, UncontrolledDropdown, DropdownToggle,
@@ -18,9 +19,7 @@ const Header = () => {
       expand="md"
       light
     >
-      <NavbarBrand href="/">
-        reactstrap
-      </NavbarBrand>
+      <NavbarBrand href="/">{APP_NAME}</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav
